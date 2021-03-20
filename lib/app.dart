@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/content/content_page.dart';
+import 'package:ifood_flutter_clone/views/home/home_page.dart';
 
 class App extends StatelessWidget {
   @override
@@ -7,7 +7,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'IFood Flutter Clone',
       debugShowCheckedModeBanner: false,
-      home: ContentPage(),
+      home: HomePage(),
     );
   }
 }
