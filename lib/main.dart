@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ifood_flutter_clone/app.dart';
+import 'package:ifood_flutter_clone/views/tabs/tabs.dart';
+import 'views/splash/splash_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
@@ -9,5 +10,13 @@ void main() {
 
   SystemChrome.setPreferredOrientations(
           [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(App()));
+      .then((_) => runApp(MaterialApp(
+            initialRoute: '/',
+            routes: {
+              '/': (BuildContext context) => SplashPage(),
+              '/tab': (BuildContext context) => TabScreen(),
+            },
+            title: 'IFood Flutter Clone',
+            debugShowCheckedModeBanner: false,
+          )));
 }
