@@ -11,7 +11,7 @@ class TabBarComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
