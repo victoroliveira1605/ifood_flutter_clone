@@ -8,7 +8,20 @@ class HeaderLocationComponent extends StatelessWidget {
   const HeaderLocationComponent({required this.location}) : super();
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SliverPersistentHeader(
+      delegate: _HeaderLocationComponentDelegate(location),
+    );
+  }
+}
+
+class _HeaderLocationComponentDelegate extends SliverPersistentHeaderDelegate {
+  final String location;
+
+  _HeaderLocationComponentDelegate(this.location);
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return SingleChildScrollView(
       padding: EdgeInsets.all(16),
       child: Column(
         children: [
@@ -62,5 +75,16 @@ class HeaderLocationComponent extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  double get maxExtent => 38;
+
+  @override
+  double get minExtent => 38;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }

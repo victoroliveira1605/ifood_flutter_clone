@@ -14,6 +14,21 @@ class SplashPage extends StatelessWidget {
     );
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              child: Image.asset(
+                "assets/images/logo.jpeg",
+                height: 60,
+                width: 180,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

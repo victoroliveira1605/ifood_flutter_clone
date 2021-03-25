@@ -6,17 +6,28 @@ class FilterComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> items = [
-      'Ordenar',
-      'Pra retirar',
-      'Entrega grátis',
-      'Vale-refeição',
-      'Distância',
-      'Entrega Parceira',
-      'Super Restaurante',
-      'Filtros'
-    ];
+    return SliverPersistentHeader(
+      delegate: _ContentFilterComponentDelegate(),
+    );
+  }
+}
 
+class _ContentFilterComponentDelegate extends SliverPersistentHeaderDelegate {
+  List<String> items = [
+    'Ordenar',
+    'Pra retirar',
+    'Entrega grátis',
+    'Vale-refeição',
+    'Distância',
+    'Entrega Parceira',
+    'Super Restaurante',
+    'Filtros'
+  ];
+
+  _ContentFilterComponentDelegate();
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 16),
       height: 32,
@@ -42,5 +53,16 @@ class FilterComponent extends StatelessWidget {
         scrollDirection: Axis.horizontal,
       ),
     );
+  }
+
+  @override
+  double get maxExtent => 60;
+
+  @override
+  double get minExtent => 60;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
   }
 }
